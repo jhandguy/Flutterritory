@@ -1,51 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutterritory/models/story.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutterritory/features/top_stories.dart';
+import 'package:flutterritory/reducers/top_stories_reducer.dart';
+import 'package:flutterritory/states/app_state.dart';
+import 'package:redux/redux.dart';
 
-void main() => runApp(Flutteritory());
+void main() {
+  final store = new Store<AppState>(topStoriesReducer, initialState: AppState(topStories: []));
+
+  runApp(
+    Flutteritory(
+      store: store,
+      title: 'Flutteritory'
+    )
+  );
+}
 
 class Flutteritory extends StatelessWidget {
-  static const String title = 'Flutteritory';
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: title,
-      theme: ThemeData.dark(),
-      home: TopStoriesWidget(title: title),
-    );
-  }
-}
-
-class TopStoriesWidget extends StatefulWidget {
-  TopStoriesWidget({Key key, this.title}) : super(key: key);
-
+  final Store<AppState> store;
   final String title;
 
-  @override
-  _TopStoriesState createState() => _TopStoriesState();
-}
-
-class _TopStoriesState extends State<TopStoriesWidget> {
-  List<Story> _topStories = [
-    Story("Section 1", "Subsection 1", "Title 1", "Abstract 1", "Byline 1", "URL 1", []),
-    Story("Section 2", "Subsection 2", "Title 2", "Abstract 2", "Byline 2", "URL 2", []),
-  ];
+  Flutteritory({Key key, this.store, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ListView(
-          children: _topStories.map((story) => Row(
-            children: <Widget>[
-              Text(story.title)
-            ],
-          )).toList(),
-        ),
-      ),
+    return StoreProvider<AppState>(
+      store: store,
+      child: MaterialApp(
+        title: title,
+        theme: ThemeData.dark(),
+        home: TopStories(title: title),
+      )
     );
   }
 }

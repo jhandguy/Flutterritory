@@ -1,10 +1,14 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutterritory/models/format.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
-@immutable
-class Multimedia {
-  final String url;
-  final Format format;
+part 'multimedia.g.dart';
 
-  Multimedia(this.url, this.format);
+abstract class Multimedia implements Built<Multimedia, MultimediaBuilder> {
+  static Serializer<Multimedia> get serializer => _$multimediaSerializer;
+
+  String get url;
+  String get format;
+
+  Multimedia._();
+  factory Multimedia([updates(MultimediaBuilder b)]) = _$Multimedia;
 }
