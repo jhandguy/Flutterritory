@@ -1,8 +1,9 @@
 import 'package:flutterritory/models/top_stories.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
-  test("parse top stories", () {
+  test("deserialize top stories from json string", () {
     const jsonString = """
       {
         "results": [
@@ -40,7 +41,15 @@ void main() {
       }
     """;
 
-    var results = parseTopStories(jsonString).results;
-    expect(results.length, 1);
+    var results = TopStories.fromJson(jsonString).results;
+    expect(results, isNotEmpty);
+  });
+
+  test("deserialize top stories over network", () async {
+    final response = await http.get("https://api.nytimes.com/svc/topstories/v2/home.json?api-key=de87f25eb97b4f038d8360e0de22e1dd");
+    expect(response.statusCode, 200);
+
+    var results = TopStories.fromJson(response.body).results;
+    expect(results, isNotEmpty);
   });
 }

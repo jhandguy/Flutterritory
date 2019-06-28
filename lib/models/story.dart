@@ -6,7 +6,6 @@ import 'package:flutterritory/models/multimedia.dart';
 part 'story.g.dart';
 
 abstract class Story implements Built<Story, StoryBuilder> {
-  static Serializer<Story> get serializer => _$storySerializer;
 
   String get section;
   String get subsection;
@@ -18,4 +17,19 @@ abstract class Story implements Built<Story, StoryBuilder> {
 
   Story._();
   factory Story([updates(StoryBuilder b)]) = _$Story;
+
+  static Serializer<Story> get serializer => _$storySerializer;
+
+  String getImageUrl(String format) {
+    List<String> urls = multimedia
+    .where((m) => m.format == format)
+    .map((m) => m.url)
+    .toList();
+
+    if (urls.isEmpty) {
+      return "";
+    }
+    
+    return urls.first;
+  }
 }

@@ -3,9 +3,9 @@ import 'package:flutterritory/models/story.dart';
 
 @immutable
 class AppState {
-  final List<Story> topStories;
+  final List<Story> stories;
 
   AppState({
-    @required this.topStories
+    @required this.stories
   });
 }

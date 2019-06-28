@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutterritory/features/top_stories.dart';
+import 'package:flutterritory/actions/top_stories_actions.dart';
+import 'package:flutterritory/apis/top_stories_api.dart';
+import 'package:flutterritory/middlewares/top_stories_middleware.dart';
+import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:flutterritory/reducers/top_stories_reducer.dart';
 import 'package:flutterritory/states/app_state.dart';
 import 'package:redux/redux.dart';
 
 void main() {
-  final store = new Store<AppState>(topStoriesReducer, initialState: AppState(topStories: []));
+  final api = TopStoriesAPI();
+  final store = Store<AppState>(
+    topStoriesReducer, 
+    initialState: AppState(stories: []),
+    middleware: [
+      TopStoriesMiddleWare(api),
+    ]);
 
   runApp(
     Flutteritory(
@@ -14,6 +23,8 @@ void main() {
       title: 'Flutteritory'
     )
   );
+
+  store.dispatch(TopStoriesGetAction());
 }
 
 class Flutteritory extends StatelessWidget {
@@ -29,7 +40,7 @@ class Flutteritory extends StatelessWidget {
       child: MaterialApp(
         title: title,
         theme: ThemeData.dark(),
-        home: TopStories(title: title),
+        home: TopStoriesWidget(title: title),
       )
     );
   }
