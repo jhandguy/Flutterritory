@@ -39,7 +39,7 @@ class _ViewModel {
   _ViewModel(this.topStoryWidgets);
 
   factory _ViewModel.from(AppState state) {
-    var topStoryWidgets = state.stories.map((story) => TopStoryWidget.from(story)).toList();
+    var topStoryWidgets = state.stories.map((story) => TopStoryWidget(story)).toList();
     return _ViewModel(topStoryWidgets);
   }
 }
