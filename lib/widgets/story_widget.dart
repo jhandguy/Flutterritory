@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterritory/models/story.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StoryWidget extends StatelessWidget {
   StoryWidget(this._story);
@@ -44,11 +45,26 @@ class StoryWidget extends StatelessWidget {
                   ),
                   padding: EdgeInsets.all(10)
                 ),
+                Container(
+                  child: FlatButton(
+                    child: Text("Read more..."),
+                    textColor: Theme.of(context).accentColor,
+                    onPressed: () => _launch(_story.url),
+                  ),
+                )
               ],
             ),
           ),
         ),
       )
     );
+  }
+
+  _launch(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw "Could not launch $url";
+    }
   }
 }
