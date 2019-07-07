@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux_logging/redux_logging.dart';
 import 'package:flutterritory/actions/top_stories_actions.dart';
 import 'package:flutterritory/apis/top_stories_api.dart';
 import 'package:flutterritory/middlewares/top_stories_middleware.dart';
@@ -14,6 +15,7 @@ void main() {
     topStoriesReducer, 
     initialState: AppState(stories: []),
     middleware: [
+      LoggingMiddleware.printer(),
       TopStoriesMiddleWare(api),
     ]);
 
