@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutterritory/models/story.dart';
+import 'package:repository/models/story.dart';
 
 @immutable
 class AppState {

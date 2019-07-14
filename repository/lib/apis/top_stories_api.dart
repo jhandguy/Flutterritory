@@ -1,4 +1,4 @@
-import 'package:flutterritory/models/top_stories.dart';
+import 'package:repository/models/top_stories.dart';
 import 'package:http/http.dart' as http;
 
 class TopStoriesAPI {

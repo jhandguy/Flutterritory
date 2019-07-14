@@ -15,7 +15,7 @@ class _$StorySerializer implements StructuredSerializer<Story> {
   final String wireName = 'Story';
 
   @override
-  Iterable serialize(Serializers serializers, Story object,
+  Iterable<Object> serialize(Serializers serializers, Story object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'section',
@@ -45,7 +45,7 @@ class _$StorySerializer implements StructuredSerializer<Story> {
   }
 
   @override
-  Story deserialize(Serializers serializers, Iterable serialized,
+  Story deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new StoryBuilder();
 
@@ -81,8 +81,9 @@ class _$StorySerializer implements StructuredSerializer<Story> {
           break;
         case 'multimedia':
           result.multimedia.replace(serializers.deserialize(value,
-              specifiedType: const FullType(
-                  BuiltList, const [const FullType(Multimedia)])) as BuiltList);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Multimedia)]))
+              as BuiltList<dynamic>);
           break;
       }
     }

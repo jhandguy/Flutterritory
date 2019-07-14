@@ -15,7 +15,7 @@ class _$TopStoriesSerializer implements StructuredSerializer<TopStories> {
   final String wireName = 'TopStories';
 
   @override
-  Iterable serialize(Serializers serializers, TopStories object,
+  Iterable<Object> serialize(Serializers serializers, TopStories object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'results',
@@ -28,7 +28,7 @@ class _$TopStoriesSerializer implements StructuredSerializer<TopStories> {
   }
 
   @override
-  TopStories deserialize(Serializers serializers, Iterable serialized,
+  TopStories deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new TopStoriesBuilder();
 
@@ -42,7 +42,7 @@ class _$TopStoriesSerializer implements StructuredSerializer<TopStories> {
           result.results.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(Story)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
       }
     }

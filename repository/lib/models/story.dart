@@ -1,7 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:flutterritory/models/multimedia.dart';
+import 'package:repository/models/multimedia.dart';
 
 part 'story.g.dart';
 

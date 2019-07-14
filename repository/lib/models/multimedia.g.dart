@@ -15,7 +15,7 @@ class _$MultimediaSerializer implements StructuredSerializer<Multimedia> {
   final String wireName = 'Multimedia';
 
   @override
-  Iterable serialize(Serializers serializers, Multimedia object,
+  Iterable<Object> serialize(Serializers serializers, Multimedia object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'url',
@@ -29,7 +29,7 @@ class _$MultimediaSerializer implements StructuredSerializer<Multimedia> {
   }
 
   @override
-  Multimedia deserialize(Serializers serializers, Iterable serialized,
+  Multimedia deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new MultimediaBuilder();
 

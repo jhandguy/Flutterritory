@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutterritory/models/story.dart';
+import 'package:repository/models/story.dart';
 
 class TopStoriesGetAction {
   final Completer completer;

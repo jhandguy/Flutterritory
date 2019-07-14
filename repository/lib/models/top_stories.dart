@@ -1,8 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:flutterritory/models/serializers.dart';
-import 'package:flutterritory/models/story.dart';
+import 'package:repository/models/serializers.dart';
+import 'package:repository/models/story.dart';
 import 'dart:convert' as json;
 
 part 'top_stories.g.dart';
