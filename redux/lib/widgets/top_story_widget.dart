@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:repository/models/story.dart';
+import 'package:repository/repository.dart';
 import 'package:flutterritory/widgets/story_widget.dart';
 
 class TopStoryWidget extends StatelessWidget {

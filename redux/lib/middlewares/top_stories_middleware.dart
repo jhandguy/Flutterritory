@@ -1,5 +1,5 @@
 import 'package:flutterritory/actions/top_stories_actions.dart';
-import 'package:repository/apis/top_stories_api.dart';
+import 'package:repository/repository.dart';
 import 'package:flutterritory/states/app_state.dart';
 import 'package:redux/redux.dart';
 import 'package:async/async.dart';

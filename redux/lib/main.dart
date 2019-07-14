@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux_logging/redux_logging.dart';
 import 'package:flutterritory/actions/top_stories_actions.dart';
-import 'package:repository/apis/top_stories_api.dart';
+import 'package:repository/repository.dart';
 import 'package:flutterritory/middlewares/top_stories_middleware.dart';
 import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:flutterritory/reducers/top_stories_reducer.dart';
@@ -22,7 +22,7 @@ void main() {
   runApp(
     Flutteritory(
       store: store,
-      title: 'Flutteritory'
+      title: 'Flutteritory',
     )
   );
 

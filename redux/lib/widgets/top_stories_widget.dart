@@ -27,7 +27,7 @@ class TopStoriesWidget extends StatelessWidget {
             child: ListView(children: viewModel.topStoryWidgets),
           );
         },
-      )
+      ),
     );
   }
 }
