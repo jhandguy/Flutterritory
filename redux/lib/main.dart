@@ -19,8 +19,8 @@ void main() {
 
   runApp(
     Flutteritory(
-      store: store,
       title: 'Flutteritory',
+      store: store,
     )
   );
 
@@ -31,7 +31,7 @@ class Flutteritory extends StatelessWidget {
   final Store<AppState> store;
   final String title;
 
-  Flutteritory({Key key, this.store, this.title}) : super(key: key);
+  Flutteritory({Key key, this.title, this.store}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
