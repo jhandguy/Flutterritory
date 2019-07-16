@@ -5,7 +5,7 @@ class TopStoriesRepository {
   final TopStoriesAPI api;
 
   TopStoriesRepository({
-    @required this.api
+    @required this.api,
   });
 
   Future<List<Story>> topStories() async {

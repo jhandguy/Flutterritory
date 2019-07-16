@@ -10,14 +10,14 @@ import 'package:flutterritory/states/app_state.dart';
 import 'package:redux/redux.dart';
 
 void main() {
-  final api = TopStoriesAPI();
   final store = Store<AppState>(
     topStoriesReducer, 
     initialState: AppState(stories: []),
     middleware: [
       LoggingMiddleware.printer(),
-      TopStoriesMiddleWare(api),
-    ]);
+      TopStoriesMiddleWare(api: TopStoriesAPI()),
+    ]
+  );
 
   runApp(
     Flutteritory(

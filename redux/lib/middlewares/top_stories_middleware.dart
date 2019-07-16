@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutterritory/actions/top_stories_actions.dart';
 import 'package:repository/repository.dart';
 import 'package:flutterritory/states/app_state.dart';
@@ -8,7 +9,9 @@ class TopStoriesMiddleWare extends MiddlewareClass<AppState> {
   final TopStoriesAPI api;
   CancelableOperation<Store<AppState>> _operation;
 
-  TopStoriesMiddleWare(this.api);
+  TopStoriesMiddleWare({
+    @required this.api,
+  });
 
   @override
   call(Store<AppState> store, dynamic action, NextDispatcher next) {
