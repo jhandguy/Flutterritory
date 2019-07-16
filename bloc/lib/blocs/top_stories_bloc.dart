@@ -18,13 +18,14 @@ class TopStoriesBloc extends Bloc<TopStoriesEvent, TopStoriesState> {
   Stream<TopStoriesState> mapEventToState(TopStoriesEvent event) async* {
     if (event is GetTopStories) {
       try {
-          final topStories = await repository.topStories();
-          yield SuccessfulTopStories(topStories);
-        } catch (error) {
-          yield error is FailedTopStories
-              ? FailedTopStories(error.message)
-              : FailedTopStories('something went wrong');
-        }
+        yield LoadingTopStories();
+        final topStories = await repository.topStories();
+        yield SuccessfulTopStories(topStories);
+      } catch (error) {
+        yield FailedTopStories(error);
+      } finally {
+        event.completer.complete();
+      }
     }
   }
 

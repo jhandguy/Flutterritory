@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 
 abstract class TopStoriesEvent extends Equatable {
@@ -5,7 +7,9 @@ abstract class TopStoriesEvent extends Equatable {
 }
 
 class GetTopStories extends TopStoriesEvent {
-  GetTopStories() : super();
+  final Completer completer;
+  
+  GetTopStories({Completer completer}) : this.completer = completer ?? Completer();
 
   @override
   String toString() => 'GetTopStories';

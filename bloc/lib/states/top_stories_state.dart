@@ -25,10 +25,10 @@ class SuccessfulTopStories extends TopStoriesState {
 }
 
 class FailedTopStories extends TopStoriesState {
-  final String message;
+  final Error error;
 
-  FailedTopStories(this.message) : super([message]);
+  FailedTopStories(this.error) : super([error]);
 
   @override
-  String toString() => 'FailedTopStories { message: $message }';
+  String toString() => 'FailedTopStories { error: $error }';
 }
