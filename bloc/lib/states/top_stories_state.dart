@@ -5,14 +5,9 @@ abstract class TopStoriesState extends Equatable {
   TopStoriesState([List props = const []]) : super(props);
 }
 
-class EmptyTopStories extends TopStoriesState {
-  @override
-  String toString() => 'TopStoriesStateEmpty';
-}
-
 class LoadingTopStories extends TopStoriesState {
   @override
-  String toString() => 'TopStoriesStateLoading';
+  String toString() => 'LoadingTopStories';
 }
 
 class SuccessfulTopStories extends TopStoriesState {
@@ -21,7 +16,7 @@ class SuccessfulTopStories extends TopStoriesState {
   SuccessfulTopStories(this.stories) : super([stories]);
 
   @override
-  String toString() => 'SuccessTopStories { stories: ${stories.join(",")} }';
+  String toString() => 'SuccessfulTopStories { stories: ${stories.join(",")} }';
 }
 
 class FailedTopStories extends TopStoriesState {

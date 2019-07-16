@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux_logging/redux_logging.dart';
 import 'package:flutterritory/actions/top_stories_actions.dart';
 import 'package:repository/repository.dart';
 import 'package:flutterritory/middlewares/top_stories_middleware.dart';
@@ -12,9 +11,8 @@ import 'package:redux/redux.dart';
 void main() {
   final store = Store<AppState>(
     topStoriesReducer, 
-    initialState: AppState(stories: []),
+    initialState: AppState(stories: [], isLoading: false),
     middleware: [
-      LoggingMiddleware.printer(),
       TopStoriesMiddleWare(api: TopStoriesAPI()),
     ]
   );
@@ -26,7 +24,7 @@ void main() {
     )
   );
 
-  store.dispatch(TopStoriesGetAction());
+  store.dispatch(GetTopStories());
 }
 
 class Flutteritory extends StatelessWidget {

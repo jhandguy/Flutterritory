@@ -15,13 +15,15 @@ class TopStoriesMiddleWare extends MiddlewareClass<AppState> {
 
   @override
   call(Store<AppState> store, dynamic action, NextDispatcher next) {
-    if (action is TopStoriesGetAction) {
+    if (action is GetTopStories) {
       _operation?.cancel();
       
+      store.dispatch(LoadingTopStories());
+
       _operation = CancelableOperation.fromFuture(
         api.fetchTopStories()
-        .then((topStories) => store.dispatch(TopStoriesResultsAction(topStories.results.asList())))
-        .catchError((e, t) => store.dispatch(TopStoriesErrorAction()))
+        .then((topStories) => store.dispatch(SuccessfulTopStories(topStories.results.asList())))
+        .catchError((e, t) => store.dispatch(FailedTopStories(e)))
         .then((f) {
           action.completer.complete();
           return store;

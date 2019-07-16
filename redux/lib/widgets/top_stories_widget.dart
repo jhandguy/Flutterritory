@@ -20,11 +20,11 @@ class TopStoriesWidget extends StatelessWidget {
         builder: (context, viewModel) {
           return RefreshIndicator(
             onRefresh: () {
-              final action = TopStoriesGetAction();
+              final action = GetTopStories();
               StoreProvider.of<AppState>(context).dispatch(action);
               return action.completer.future;
             },
-            child: ListView(children: viewModel.topStoryWidgets),
+            child: viewModel.widget,
           );
         },
       ),
@@ -34,12 +34,29 @@ class TopStoriesWidget extends StatelessWidget {
 
 @immutable
 class _ViewModel {
-  final List<TopStoryWidget> topStoryWidgets;
+  final Widget widget;
 
-  _ViewModel(this.topStoryWidgets);
+  _ViewModel(this.widget);
 
   factory _ViewModel.from(AppState state) {
-    var topStoryWidgets = state.stories.map((story) => TopStoryWidget(story)).toList();
-    return _ViewModel(topStoryWidgets);
+    var widget;
+
+    if (state.isLoading) {
+      widget = Center(
+        child: Text("Loading..."),
+      );
+    } 
+    else if (state.error != null) {
+      widget = Center(
+        child: Text(state.error.toString()),
+      );
+    }
+    else {
+      widget = ListView(
+        children: state.stories.map((story) => TopStoryWidget(story)).toList(),
+      );
+    }
+
+    return _ViewModel(widget);
   }
 }

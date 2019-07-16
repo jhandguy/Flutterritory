@@ -8,10 +8,10 @@ environment:
 
 dependencies:
   cupertino_icons: ^0.1.2
+  equatable: ^0.3.0
   flutter:
     sdk: flutter
   flutter_redux: ^0.5.3
-  redux_logging: ^0.3.0
   repository:
     path: ../repository
   url_launcher: ^5.0.3

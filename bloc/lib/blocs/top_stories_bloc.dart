@@ -12,7 +12,7 @@ class TopStoriesBloc extends Bloc<TopStoriesEvent, TopStoriesState> {
   });
 
   @override
-  TopStoriesState get initialState => EmptyTopStories();
+  TopStoriesState get initialState => SuccessfulTopStories([]);
 
   @override
   Stream<TopStoriesState> mapEventToState(TopStoriesEvent event) async* {

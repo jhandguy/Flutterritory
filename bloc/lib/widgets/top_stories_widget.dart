@@ -55,17 +55,7 @@ class _ViewModel {
   factory _ViewModel.from(TopStoriesState state) {
     var widget;
 
-    if (state is SuccessfulTopStories) {
-      widget = ListView(
-        children: state.stories.map((story) => TopStoryWidget(story)).toList(),
-      );
-    }
-    else if (state is EmptyTopStories) {
-      widget = Center(
-        child: Text("Empty"),
-      );
-    }
-    else if (state is LoadingTopStories) {
+    if (state is LoadingTopStories) {
       widget = Center(
         child: Text("Loading..."),
       );
@@ -74,6 +64,14 @@ class _ViewModel {
       widget = Center(
         child: Text(state.error.toString()),
       );
+    }
+    else if (state is SuccessfulTopStories) {
+      widget = ListView(
+        children: state.stories.map((story) => TopStoryWidget(story)).toList(),
+      );
+    }
+    else {
+      throw "Unknown state $state";
     }
 
     return _ViewModel(widget);
