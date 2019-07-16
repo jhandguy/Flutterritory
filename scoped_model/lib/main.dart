@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterritory/widgets/top_stories_widget.dart';
 
 void main() {
   runApp(
@@ -18,7 +19,7 @@ class Flutteritory extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: ThemeData.dark(),
-      home: Text(title),
+      home: TopStoriesWidget(title: title),
     );
   }
 }

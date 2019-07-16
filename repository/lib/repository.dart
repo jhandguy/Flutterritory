@@ -1,4 +1,4 @@
 library repository;
 
 export 'models/story.dart';
-export 'apis/top_stories_api.dart';
+export 'repositories/top_stories_repository.dart';

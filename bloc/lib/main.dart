@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterritory/blocs/top_stories_bloc.dart';
 import 'package:flutterritory/events/top_stories_event.dart';
-import 'package:flutterritory/repositories/top_stories_repository.dart';
 import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:repository/repository.dart';
 
 void main() {
   final bloc = TopStoriesBloc(
-    repository: TopStoriesRepository(api: TopStoriesAPI()),
+    repository: TopStoriesRepository(),
   );
 
   runApp(

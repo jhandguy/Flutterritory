@@ -6,11 +6,11 @@ import 'package:redux/redux.dart';
 import 'package:async/async.dart';
 
 class TopStoriesMiddleWare extends MiddlewareClass<AppState> {
-  final TopStoriesAPI api;
-  CancelableOperation<Store<AppState>> _operation;
+  final TopStoriesRepository repository;
+  CancelableOperation _operation;
 
   TopStoriesMiddleWare({
-    @required this.api,
+    @required this.repository,
   });
 
   @override
@@ -21,13 +21,10 @@ class TopStoriesMiddleWare extends MiddlewareClass<AppState> {
       store.dispatch(LoadingTopStories());
 
       _operation = CancelableOperation.fromFuture(
-        api.fetchTopStories()
-        .then((topStories) => store.dispatch(SuccessfulTopStories(topStories.results.asList())))
-        .catchError((e, t) => store.dispatch(FailedTopStories(e)))
-        .then((f) {
-          action.completer.complete();
-          return store;
-        })
+        repository.topStories()
+        .then((stories) => store.dispatch(SuccessfulTopStories(stories)))
+        .catchError((error) => store.dispatch(FailedTopStories(error)))
+        .whenComplete(action.completer.complete)
       );
     }
 

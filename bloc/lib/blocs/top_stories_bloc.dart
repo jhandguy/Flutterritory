@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutterritory/events/top_stories_event.dart';
-import 'package:flutterritory/repositories/top_stories_repository.dart';
 import 'package:flutterritory/states/top_stories_state.dart';
+import 'package:repository/repository.dart';
 
 class TopStoriesBloc extends Bloc<TopStoriesEvent, TopStoriesState> {
   final TopStoriesRepository repository;

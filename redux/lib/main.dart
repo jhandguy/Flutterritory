@@ -13,7 +13,7 @@ void main() {
     topStoriesReducer, 
     initialState: AppState(stories: [], isLoading: false),
     middleware: [
-      TopStoriesMiddleWare(api: TopStoriesAPI()),
+      TopStoriesMiddleWare(repository: TopStoriesRepository()),
     ]
   );
 
