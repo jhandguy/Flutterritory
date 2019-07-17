@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterritory/models/top_stories_model.dart';
+import 'package:flutterritory/widgets/top_story_widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class TopStoriesWidget extends StatelessWidget {
@@ -15,11 +16,36 @@ class TopStoriesWidget extends StatelessWidget {
       ),
       body: ScopedModelDescendant<TopStoriesModel>(
         builder: (context, child, model) {
-          return ListView(
-            children: model.stories.map((story) => Text(story.title)).toList(),
+          return RefreshIndicator(
+            onRefresh: model.topStories,
+            child: _ViewModel.from(model).widget,
           );
         },
       ),
     );
+  }
+}
+
+@immutable
+class _ViewModel {
+  final Widget widget;
+
+  _ViewModel(this.widget);
+
+  factory _ViewModel.from(TopStoriesModel model) {
+    var widget;
+
+    if (model.error != null) {
+      widget = Center(
+        child: Text(model.error.toString()),
+      );
+    } 
+    else {
+      widget = ListView(
+        children: model.stories.map((story) => TopStoryWidget(story)).toList(),
+      );
+    }
+
+    return _ViewModel(widget);
   }
 }

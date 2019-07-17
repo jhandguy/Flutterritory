@@ -6,8 +6,10 @@ import 'package:scoped_model/scoped_model.dart';
 class TopStoriesModel extends Model {
   final TopStoriesRepository repository;
   List<Story> _stories = [];
+  Error _error;
 
   List<Story> get stories => _stories;
+  Error get error => _error;
 
   TopStoriesModel({
     @required this.repository,
@@ -19,8 +21,14 @@ class TopStoriesModel extends Model {
   Future topStories() {
     return repository
       .topStories()
-      .then((stories) => _stories = stories)
-      .catchError((error) => _stories = [])
+      .then((stories) {
+        _stories = stories;
+        _error = null;
+      })
+      .catchError((error) {
+         _stories = [];
+         _error = error;
+      })
       .whenComplete(notifyListeners);
   }
   
