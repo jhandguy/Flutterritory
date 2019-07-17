@@ -7,9 +7,11 @@ class TopStoriesModel extends Model {
   final TopStoriesRepository repository;
   List<Story> _stories = [];
   Error _error;
+  bool _isLoading = false;
 
   List<Story> get stories => _stories;
   Error get error => _error;
+  bool get isLoading => _isLoading;
 
   TopStoriesModel({
     @required this.repository,
@@ -19,6 +21,9 @@ class TopStoriesModel extends Model {
       ScopedModel.of<TopStoriesModel>(context);
 
   Future topStories() {
+    _isLoading = true;
+    notifyListeners();
+
     return repository
       .topStories()
       .then((stories) {
@@ -29,7 +34,10 @@ class TopStoriesModel extends Model {
          _stories = [];
          _error = error;
       })
-      .whenComplete(notifyListeners);
+      .whenComplete(() {
+        _isLoading = false;
+        notifyListeners();
+      });
   }
   
   @override

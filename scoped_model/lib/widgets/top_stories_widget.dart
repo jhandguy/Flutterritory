@@ -35,11 +35,16 @@ class _ViewModel {
   factory _ViewModel.from(TopStoriesModel model) {
     var widget;
 
-    if (model.error != null) {
+    if (model.isLoading) {
+      widget = Center(
+        child: Text("Loading..."),
+      );
+    }
+    else if (model.error != null) {
       widget = Center(
         child: Text(model.error.toString()),
       );
-    } 
+    }
     else {
       widget = ListView(
         children: model.stories.map((story) => TopStoryWidget(story)).toList(),
