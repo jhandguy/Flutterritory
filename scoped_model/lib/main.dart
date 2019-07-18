@@ -13,8 +13,6 @@ void main() {
       model: model,
     )
   );
-
-  model.topStories();
 }
 
 class Flutteritory extends StatelessWidget {
