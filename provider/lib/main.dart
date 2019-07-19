@@ -8,18 +8,18 @@ void main() {
   final changeNotifier = TopStoriesChangeNotifier(repository: TopStoriesRepository());
 
   runApp(
-    Flutteritory(
-      title: 'Flutteritory',
+    Flutterritory(
+      title: 'Flutterritory',
       changeNotifier: changeNotifier,
     )
   );
 }
 
-class Flutteritory extends StatelessWidget {
+class Flutterritory extends StatelessWidget {
   final String title;
   final TopStoriesChangeNotifier changeNotifier;
 
-  Flutteritory({Key key, this.title, this.changeNotifier}) : super(key: key);
+  Flutterritory({Key key, this.title, this.changeNotifier}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

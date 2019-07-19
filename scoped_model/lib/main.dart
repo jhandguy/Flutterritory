@@ -8,18 +8,18 @@ void main() {
   final model = TopStoriesModel(repository: TopStoriesRepository());
 
   runApp(
-    Flutteritory(
-      title: 'Flutteritory',
+    Flutterritory(
+      title: 'Flutterritory',
       model: model,
     )
   );
 }
 
-class Flutteritory extends StatelessWidget {
+class Flutterritory extends StatelessWidget {
   final String title;
   final TopStoriesModel model;
 
-  Flutteritory({Key key, this.title, this.model}) : super(key: key);
+  Flutterritory({Key key, this.title, this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

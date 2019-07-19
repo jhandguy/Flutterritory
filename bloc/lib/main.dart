@@ -11,8 +11,8 @@ void main() {
   );
 
   runApp(
-    Flutteritory(
-      title: 'Flutteritory',
+    Flutterritory(
+      title: 'Flutterritory',
       bloc: bloc,
     )
   );
@@ -20,11 +20,11 @@ void main() {
   bloc.dispatch(GetTopStories());
 }
 
-class Flutteritory extends StatelessWidget {
+class Flutterritory extends StatelessWidget {
   final String title;
   final TopStoriesBloc bloc;
 
-  Flutteritory({Key key, this.title, this.bloc}) : super(key: key);
+  Flutterritory({Key key, this.title, this.bloc}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

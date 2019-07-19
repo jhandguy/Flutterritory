@@ -18,8 +18,8 @@ void main() {
   );
 
   runApp(
-    Flutteritory(
-      title: 'Flutteritory',
+    Flutterritory(
+      title: 'Flutterritory',
       store: store,
     )
   );
@@ -27,11 +27,11 @@ void main() {
   store.dispatch(GetTopStories());
 }
 
-class Flutteritory extends StatelessWidget {
+class Flutterritory extends StatelessWidget {
   final Store<AppState> store;
   final String title;
 
-  Flutteritory({Key key, this.title, this.store}) : super(key: key);
+  Flutterritory({Key key, this.title, this.store}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
