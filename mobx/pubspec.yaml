@@ -1,0 +1,24 @@
+name: flutterritory
+description: Flutterritory - MobX
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^0.1.2
+  equatable: ^0.3.0
+  flutter:
+    sdk: flutter
+  flutter_mobx: ^0.3.0+1
+  repository:
+    path: ../repository
+  url_launcher: ^5.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
