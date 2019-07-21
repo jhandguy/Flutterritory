@@ -6,9 +6,7 @@ import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:repository/repository.dart';
 
 void main() {
-  final bloc = TopStoriesBloc(
-    repository: TopStoriesRepository(),
-  );
+  final bloc = TopStoriesBloc(repository: TopStoriesRepository());
 
   runApp(
     Flutterritory(

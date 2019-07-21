@@ -5,17 +5,19 @@ import 'package:scoped_model/scoped_model.dart';
 
 class TopStoriesModel extends Model {
   final TopStoriesRepository repository;
-  List<Story> _stories = [];
-  Error _error;
-  bool _isLoading = false;
-
-  List<Story> get stories => _stories;
-  Error get error => _error;
-  bool get isLoading => _isLoading;
 
   TopStoriesModel({
     @required this.repository,
   });
+
+  List<Story> _stories = [];
+  List<Story> get stories => _stories;
+
+  Error _error;
+  Error get error => _error;
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
   static TopStoriesModel of(BuildContext context) => 
       ScopedModel.of<TopStoriesModel>(context);
@@ -31,8 +33,8 @@ class TopStoriesModel extends Model {
         _error = null;
       })
       .catchError((error) {
-         _stories = [];
-         _error = error;
+        _stories = [];
+        _error = error;
       })
       .whenComplete(() {
         _isLoading = false;
