@@ -11,14 +11,14 @@ class TopStoriesWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return TopStoriesState(store: store);
+    return _TopStoriesWidgetState(store: store);
   }
 }
 
-class TopStoriesState extends State<TopStoriesWidget> {
+class _TopStoriesWidgetState extends State<TopStoriesWidget> {
   final TopStoriesStore store;
 
-  TopStoriesState({this.store});
+  _TopStoriesWidgetState({this.store});
 
   @override
   Widget build(BuildContext context) {

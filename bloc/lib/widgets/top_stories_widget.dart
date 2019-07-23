@@ -11,10 +11,10 @@ class TopStoriesWidget extends StatefulWidget {
   final String title;
 
   @override
-  State<TopStoriesWidget> createState() => _TopStoriesState();
+  State<TopStoriesWidget> createState() => _TopStoriesWidgetState();
 }
 
-class _TopStoriesState extends State<TopStoriesWidget> {
+class _TopStoriesWidgetState extends State<TopStoriesWidget> {
   TopStoriesBloc _bloc;
 
   @override
@@ -29,9 +29,9 @@ class _TopStoriesState extends State<TopStoriesWidget> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: BlocBuilder(
+      body: BlocBuilder<TopStoriesBloc, TopStoriesState>(
         bloc: _bloc,
-        builder: (BuildContext context, TopStoriesState state) {
+        builder: (context, state) {
           return RefreshIndicator(
             onRefresh: () {
               final event = GetTopStories();
