@@ -1,24 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutterritory/widgets/flutterritory_widget.dart';
 
 void main() {
   runApp(
-    Flutterritory(
+    FlutterritoryWidget(
       title: 'Flutterritory',
     )
   );
-}
-
-class Flutterritory extends StatelessWidget {
-  final String title;
-
-  Flutterritory({Key key, this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: title,
-      theme: ThemeData.dark(),
-      home: Center(child: Text(title)),
-    );
-  }
 }

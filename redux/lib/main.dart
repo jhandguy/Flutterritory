@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutterritory/actions/top_stories_actions.dart';
+import 'package:flutterritory/widgets/flutterritory_widget.dart';
 import 'package:repository/repository.dart';
 import 'package:flutterritory/middlewares/top_stories_middleware.dart';
-import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:flutterritory/reducers/top_stories_reducer.dart';
 import 'package:flutterritory/states/app_state.dart';
 import 'package:redux/redux.dart';
@@ -18,30 +17,11 @@ void main() {
   );
 
   runApp(
-    Flutterritory(
+    FlutterritoryWidget(
       title: 'Flutterritory',
       store: store,
     )
   );
 
   store.dispatch(GetTopStories());
-}
-
-class Flutterritory extends StatelessWidget {
-  final Store<AppState> store;
-  final String title;
-
-  Flutterritory({Key key, this.title, this.store}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StoreProvider<AppState>(
-      store: store,
-      child: MaterialApp(
-        title: title,
-        theme: ThemeData.dark(),
-        home: TopStoriesWidget(title: title),
-      )
-    );
-  }
 }
