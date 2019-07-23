@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterritory/widgets/top_stories_widget.dart';
 
 class AppWidget extends StatelessWidget {
   final String title;
@@ -10,7 +11,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: ThemeData.dark(),
-      home: Center(child: Text(title)),
+      home: TopStoriesWidget(title: title),
     );
   }
 }
