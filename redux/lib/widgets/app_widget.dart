@@ -4,11 +4,11 @@ import 'package:flutterritory/states/app_state.dart';
 import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:redux/redux.dart';
 
-class FlutterritoryWidget extends StatelessWidget {
+class AppWidget extends StatelessWidget {
   final Store<AppState> store;
   final String title;
 
-  FlutterritoryWidget({Key key, this.title, this.store}) : super(key: key);
+  AppWidget({Key key, this.title, this.store}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

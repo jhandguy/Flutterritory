@@ -3,11 +3,11 @@ import 'package:flutterritory/change_notifiers/top_stories_change_notifier.dart'
 import 'package:flutterritory/widgets/top_stories_widget.dart';
 import 'package:provider/provider.dart';
 
-class FlutterritoryWidget extends StatelessWidget {
+class AppWidget extends StatelessWidget {
   final String title;
   final TopStoriesChangeNotifier changeNotifier;
 
-  FlutterritoryWidget({Key key, this.title, this.changeNotifier}) : super(key: key);
+  AppWidget({Key key, this.title, this.changeNotifier}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

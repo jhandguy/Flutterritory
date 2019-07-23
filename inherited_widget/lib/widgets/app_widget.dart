@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class FlutterritoryWidget extends StatelessWidget {
+class AppWidget extends StatelessWidget {
   final String title;
 
-  FlutterritoryWidget({Key key, this.title}) : super(key: key);
+  AppWidget({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

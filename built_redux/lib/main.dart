@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterritory/widgets/flutterritory_widget.dart';
+import 'package:flutterritory/widgets/app_widget.dart';
 
 void main() {
   runApp(
-    FlutterritoryWidget(
+    AppWidget(
       title: 'Flutterritory',
     )
   );
