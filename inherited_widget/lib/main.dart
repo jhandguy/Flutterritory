@@ -3,7 +3,7 @@ import 'package:flutterritory/widgets/app_state_widget.dart';
 import 'package:flutterritory/widgets/app_widget.dart';
 import 'package:repository/repository.dart';
 
-void main() {
+main() {
   runApp(
     AppStateWidget(
       child: AppWidget(title: 'Flutterritory'),

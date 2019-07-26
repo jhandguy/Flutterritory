@@ -27,7 +27,7 @@ class AppStateWidgetState extends State<AppStateWidget> {
   AppState state;
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     topStories();
   }

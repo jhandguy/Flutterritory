@@ -30,7 +30,7 @@ class TopStoriesBloc extends Bloc<TopStoriesEvent, TopStoriesState> {
   }
 
   @override
-  void onTransition(Transition<TopStoriesEvent, TopStoriesState> transition) {
+  onTransition(Transition<TopStoriesEvent, TopStoriesState> transition) {
     print(transition);
   }
 }

@@ -34,7 +34,7 @@ class _TopStoriesWidgetState extends State<TopStoriesWidget> {
   }
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     store.topStories();
   }

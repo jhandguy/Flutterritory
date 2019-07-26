@@ -43,7 +43,7 @@ class TopStoriesModel extends Model {
   }
   
   @override
-  void addListener(listener) {
+  addListener(listener) {
     super.addListener(listener);
     topStories();
   }

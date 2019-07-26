@@ -3,7 +3,7 @@ import 'package:flutterritory/stores/top_stories_store.dart';
 import 'package:flutterritory/widgets/app_widget.dart';
 import 'package:repository/repository.dart';
 
-void main() {
+main() {
   final store = TopStoriesStore(repository: TopStoriesRepository());
 
   runApp(

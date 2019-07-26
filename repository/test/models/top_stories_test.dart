@@ -2,7 +2,7 @@ import 'package:repository/models/top_stories.dart';
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 
-void main() {
+main() {
   test("deserialize top stories from json string", () {
     const jsonString = """
       {

@@ -7,7 +7,7 @@ import 'package:flutterritory/reducers/top_stories_reducer.dart';
 import 'package:flutterritory/states/app_state.dart';
 import 'package:redux/redux.dart';
 
-void main() {
+main() {
   final store = Store<AppState>(
     topStoriesReducer, 
     initialState: AppState(stories: [], isLoading: false),

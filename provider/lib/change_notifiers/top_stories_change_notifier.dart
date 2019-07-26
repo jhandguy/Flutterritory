@@ -42,7 +42,7 @@ class TopStoriesChangeNotifier with ChangeNotifier {
   }
 
   @override
-  void addListener(listener) {
+  addListener(listener) {
     super.addListener(listener);
     topStories();
   }

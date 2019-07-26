@@ -18,7 +18,7 @@ class _TopStoriesWidgetState extends State<TopStoriesWidget> {
   TopStoriesBloc _bloc;
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     _bloc = BlocProvider.of<TopStoriesBloc>(context);
   }

@@ -3,7 +3,7 @@ import 'package:flutterritory/models/top_stories_model.dart';
 import 'package:flutterritory/widgets/app_widget.dart';
 import 'package:repository/repository.dart';
 
-void main() {
+main() {
   final model = TopStoriesModel(repository: TopStoriesRepository());
 
   runApp(
